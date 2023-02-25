@@ -1,0 +1,44 @@
+@forward "header";
+@forward "main";
+
+body {
+    --border-radius: 8px;
+
+    --text-primary: #ECF1ED;
+    --text-secondary: #D4D4D4;
+    --text-tertiary: #5B6886;
+
+    --background-primary: #23283d;
+    --background-secondary: #1e2233;
+    --background-tertiary: #101320;
+
+
+    height: 100vh;
+    padding: 0; margin: 0;
+    font-size: 16px;
+
+    // Fonts
+    h1, h2, h3, h4, div, ::placeholder {
+        font-family: 'Inter', serif;
+        margin: 0;
+    }
+    
+    // Responsive
+    @media (max-width: 570px) {
+       #popout { transform: scale(0.9);}
+        .themes { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));}
+    }
+
+    // Links
+    a { 
+        text-decoration: none;
+
+        &:visited, &:link { color: unset;}
+    }
+
+    &::-webkit-scrollbar { 
+        background-color: var(--background-tertiary);
+
+        &-thumb { background-color: var(--background-secondary);}
+    }
+}

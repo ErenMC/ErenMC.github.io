@@ -1,0 +1,22 @@
+.container {
+    height: 100px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f7f7f7;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff9900;
+    border-radius: 2px;
+    border: 3px solid #ff990000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #df4a40;
+}

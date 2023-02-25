@@ -1,0 +1,396 @@
+header {
+  position: relative;
+  height: 100vh;
+  min-height: 850px;
+  background: url(/stuff/background.jpg);
+}
+header > div {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background: linear-gradient(transparent 0%, transparent 70%, var(--background-tertiary) 100%);
+}
+header > div #popout {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50px;
+  width: 400px;
+  background-color: var(--background-tertiary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  -webkit-animation: top 800ms;
+          animation: top 800ms;
+}
+@-webkit-keyframes top {
+  0% {
+    margin-top: 200px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes top {
+  0% {
+    margin-top: 200px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+header > div #popout .popout-header {
+  width: 100%;
+  height: 13%;
+  min-height: 140px;
+  background: url("https://media.tenor.com/4VEspqIQxXMAAAAC/reimu-reimu-hakurei.gif") center/cover no-repeat;
+}
+header > div #popout .popout-body {
+  position: relative;
+  margin: 0 20px;
+}
+header > div #popout .popout-body .avatar {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100px;
+  height: auto;
+}
+header > div #popout .popout-body .avatar > :first-child {
+  width: 100%;
+  height: 100%;
+}
+header > div #popout .popout-body .avatar .status {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  background: url("https://discord.c99.nl/widget/theme-4/485373599457214476.png") no-repeat -130px -129px;
+  background-size: 900px;
+  border-radius: 50%;
+  border: 3px solid var(--background-tertiary);
+}
+header > div #popout .popout-body .username {
+  color: var(--text-primary);
+  margin-top: 75px;
+}
+header > div #popout .popout-body #badgeList {
+  position: absolute;
+  display: flex;
+  top: 20px;
+  right: 0;
+}
+header > div #popout .popout-body #badgeList .badge {
+  width: 23px;
+  height: 23px;
+  margin-right: 13px;
+}
+header > div #popout .popout-body #badgeList .badge img {
+  width: 100%;
+  height: 100%;
+}
+header > div #popout .popout-body #badgeList .badge:last-child {
+  margin-right: 0;
+  transform: scale(1.15);
+}
+header > div #popout .popout-body .about-me {
+  font-weight: lighter;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+header > div #popout .popout-body .activity {
+  position: relative;
+  margin-top: 40px;
+  background-color: #7289da;
+  border-radius: 0 0 8px 8px;
+}
+header > div #popout .popout-body .activity img {
+  width: 100%;
+  height: auto;
+}
+header > div #popout .popout-body .activity::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 21px;
+  background: url("./stuff/wave_playing.svg");
+  background-size: 100% 21px;
+  -webkit-animation: animate 6s linear infinite;
+          animation: animate 6s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  opacity: 1;
+}
+@-webkit-keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 360px;
+  }
+}
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 360px;
+  }
+}
+header > div #popout .popout-body .activity::before {
+  content: "";
+  position: absolute;
+  height: 21px;
+  width: 100%;
+  top: -21px;
+  left: 0;
+  background: url("./stuff/wave.svg");
+  background-size: 100% 21px;
+  -webkit-animation: animate2 4s linear infinite;
+          animation: animate2 4s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  opacity: 1;
+}
+@-webkit-keyframes animate2 {
+  0% {
+    background-position-x: 360px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+@keyframes animate2 {
+  0% {
+    background-position-x: 360px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+header > div #popout .popout-body .roles {
+  margin-top: 20px;
+}
+header > div #popout .popout-body .roles h4 {
+  color: var(--text-primary);
+}
+header > div #popout .popout-body .roles #roleList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  color: var(--text-primary);
+}
+header > div #popout .popout-body .roles #roleList .role {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 12px;
+  margin: 0 6px 6px 0;
+  padding: 7px;
+  border: solid;
+  border-width: 0 0 0 3px;
+  border-radius: 1px 3px 3px 1px;
+  font-size: 0.85rem;
+}
+header > div #popout .popout-body .roles #roleList .role img {
+  height: 30px;
+  margin: -15px 5px 0 0;
+}
+header > div #popout .popout-footer {
+  margin: 20px;
+}
+header > div #popout .popout-footer input {
+  width: calc(100% - 16px);
+  height: 40px;
+  background-color: var(--background-secondary);
+  border: none;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  pointer-events: initial;
+}
+header > div #popout .popout-footer input:focus {
+  outline: none;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding: 30px 30px 0.5px 30px;
+  background-color: var(--background-tertiary);
+}
+main .themes-header {
+  margin-bottom: 20px;
+}
+main .themes-header > div {
+  display: flex;
+}
+main .themes-header > div img {
+  width: 40px;
+}
+main .themes-header > div h4 {
+  font-size: 1.5em;
+  color: var(--text-tertiary);
+  margin-left: 10px;
+}
+main .themes-header .separator {
+  position: relative;
+  top: -4px;
+  left: 23px;
+  width: 200px;
+  height: 4px;
+  background-color: var(--text-tertiary);
+  border-radius: var(--border-radius);
+}
+main .themes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-gap: 25px;
+  margin-bottom: 40px;
+}
+main .themes .theme {
+  position: relative;
+  max-width: 700px;
+  color: var(--text-secondary);
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+main .themes .theme img {
+  width: 100%;
+  height: 100%;
+}
+main .themes .theme h2 {
+  position: absolute;
+  bottom: -55px;
+  left: 0;
+  right: 0;
+  padding: 10px 0 10px 15px;
+  background-color: #00000036;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  transition: bottom 0.15s;
+}
+main .themes .theme:hover h2 {
+  bottom: 0;
+}
+main #spotify-header {
+  margin-bottom: 20px;
+}
+main #spotify-header > div {
+  display: flex;
+}
+main #spotify-header > div img {
+  width: 40px;
+}
+main #spotify-header > div h4 {
+  font-size: 1.5em;
+  color: var(--text-tertiary);
+  margin-left: 10px;
+}
+main #spotify-header .separator {
+  position: relative;
+  top: -4px;
+  left: 23px;
+  width: 200px;
+  height: 4px;
+  background-color: var(--text-tertiary);
+  border-radius: var(--border-radius);
+}
+main #spotify {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-gap: 25px;
+  margin-bottom: 40px;
+}
+main #spotify .spotify {
+  display: flex;
+  height: 130px;
+  align-items: center;
+  color: var(--text-secondary);
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: 0.15s;
+}
+main #spotify .spotify img {
+  height: 100%;
+}
+main #spotify .spotify h2 {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+body {
+  --border-radius: 8px;
+  --text-primary: #ECF1ED;
+  --text-secondary: #D4D4D4;
+  --text-tertiary: #5B6886;
+  --background-primary: #23283d;
+  --background-secondary: #1e2233;
+  --background-tertiary: #101320;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+body ::-moz-placeholder {
+  font-family: "Inter", serif;
+  margin: 0;
+}
+body :-ms-input-placeholder {
+  font-family: "Inter", serif;
+  margin: 0;
+}
+body h1, body h2, body h3, body h4, body div, body ::placeholder {
+  font-family: "Inter", serif;
+  margin: 0;
+}
+@media (max-width: 570px) {
+  body #popout {
+    transform: scale(0.9);
+  }
+  body .themes {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+body a {
+  text-decoration: none;
+}
+body a:visited, body a:link {
+  color: unset;
+}
+body::-webkit-scrollbar {
+  background-color: var(--background-tertiary);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--background-secondary);
+}
