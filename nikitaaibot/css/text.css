@@ -1,0 +1,15 @@
+/* Стили для всплывающей подсказки */
+.tooltip {
+    position: absolute;
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+/* Стили для отображения подсказки при наведении на кнопку */
+.footer-button:hover .tooltip {
+    display: block;
+}
