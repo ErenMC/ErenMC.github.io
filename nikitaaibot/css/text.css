@@ -1,4 +1,3 @@
-/* Стили для всплывающей подсказки */
 .tooltip {
     position: absolute;
     display: none;
@@ -9,7 +8,6 @@
     z-index: 999;
 }
 
-/* Стили для отображения подсказки при наведении на кнопку */
 .footer-button:hover .tooltip {
     display: block;
 }

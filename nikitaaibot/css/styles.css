@@ -95,3 +95,22 @@ a:hover {
     height: auto;
 }
 
+body.dark-mode {
+    background-color: #333; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+}
+
+button#themeToggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Размер шрифта */
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+body.dark-mode {
+    background-image: url('images/dark-background.jpg');
+    background-size: 100% 67%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
