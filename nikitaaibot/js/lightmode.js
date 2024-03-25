@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
     const container = document.querySelector(".container");
+    const playerContainer = document.querySelector(".player-container");
 
     function toggleTheme() {
         body.classList.toggle("dark-mode");
         container.classList.toggle("dark-mode");
+        playerContainer.classList.toggle("dark-mode"); // Добавляем или удаляем класс dark-mode у контейнера плеера
 
         if (body.classList.contains("dark-mode")) {
             body.style.backgroundImage = "url('images/dark-background.jpg')";
@@ -14,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
             themeToggle.textContent = "🌙";
         } else {
             body.style.backgroundImage = "url('images/light-background.jpg')";
-            body.style.backgroundColor = "#fff";
-            container.style.backgroundColor = "#f9f9f9";
+            body.style.backgroundColor = "#FFFFFF";
+            container.style.backgroundColor = "#FFFFFF";
             themeToggle.textContent = "☀️";
         }
     }

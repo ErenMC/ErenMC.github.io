@@ -1,0 +1,72 @@
+#playerWrapper {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    padding: 5px;
+    border-radius: 5px;
+    transition: width 0.5s ease, background-color 0.5s ease; /* Добавьте анимацию для ширины и цвета фона */
+}
+
+/* Стили для тёмной темы */
+body.dark-mode #playerWrapper {
+    background-color: #fff; /* Белый фон */
+    color: #000; /* Чёрный текст */
+}
+
+.player-container {
+    display: flex;
+    align-items: center;
+}
+
+#volumeControl {
+    margin-left: 10px;
+    display: none; /* Начально скрываем ползунок */
+}
+
+#volumePercentage {
+    margin-left: 5px; /* Добавим отступ между ползунком и процентами */
+    display: none; /* Начально скрываем проценты */
+}
+
+#playPauseBtn {
+    background-color: transparent; /* Убираем фон кнопки */
+    border: none; /* Убираем обводку */
+    color: #fff; /* Устанавливаем цвет иконок */
+    font-size: 1.5em; /* Увеличиваем размер иконок */
+    cursor: pointer;
+}
+
+#volumeControl {
+    width: 80px; /* Уменьшаем длину ползунка громкости */
+}
+
+#trackName {
+    display: block;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#volumePercentage {
+    color: #fff;
+}
+
+/* Стили для контейнера плеера */
+#playerWrapper {
+    background-color: rgba(51, 51, 51, 0.8); /* Тёмный фон */
+}
+
+/* Дополнительные стили для темной темы */
+body.dark-mode #playerWrapper {
+    background-color: rgba(255, 255, 255, 0.8); /* Белый с прозрачностью */
+    color: #000; /* Чёрный текст */
+    backdrop-filter: blur(5px); /* Размытие фона */
+}
+
+body.dark-mode #trackName,
+body.dark-mode #volumePercentage {
+    color: #000; /* Чёрный текст */
+}
