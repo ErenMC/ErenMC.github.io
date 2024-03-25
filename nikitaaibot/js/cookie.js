@@ -43,14 +43,12 @@ function getCookie(name) {
     return null;
 }
 
-// Добавляем обработчики событий на кнопки "Принять" и "Отказаться" после загрузки документа
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('acceptCookie').addEventListener('click', acceptCookie);
     document.getElementById('rejectCookie').addEventListener('click', rejectCookie);
 
-    // Показываем плашку подтверждения куки
     document.getElementById('cookieConsent').classList.add('show');
 
-    // Проверяем, получается ли получить значение куки с именем "accepted"
     console.log("Значение куки 'accepted':", getCookie('accepted'));
 });

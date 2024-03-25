@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleTheme() {
         body.classList.toggle("dark-mode");
         container.classList.toggle("dark-mode");
-        playerContainer.classList.toggle("dark-mode"); // Добавляем или удаляем класс dark-mode у контейнера плеера
+        playerContainer.classList.toggle("dark-mode");
 
         if (body.classList.contains("dark-mode")) {
             body.style.backgroundImage = "url('images/dark-background.jpg')";

@@ -7,7 +7,7 @@ const trackName = document.getElementById('trackName');
 document.addEventListener("DOMContentLoaded", function() {
     const audio = document.getElementById('myAudio');
     
-    // Воспроизведение аудио при загрузке страницы
+    // Воспроизведение аудио при загрузке страницы (Не работает)
     audio.play().then(function() {
         console.log('Аудио начало воспроизводиться');
     }).catch(function(error) {
@@ -19,19 +19,19 @@ let timeoutId; // Переменная для хранения идентифи�
 
 // Обработчик события наведения курсора на плеер
 playerWrapper.addEventListener('mouseover', function() {
-    clearTimeout(timeoutId); // Очищаем таймер, чтобы плеер оставался открытым
-    playerWrapper.classList.add('expanded'); // Добавляем класс для развернутого плеера
-    volumeControl.style.display = 'block'; // Показываем ползунок громкости
-    volumePercentage.style.display = 'inline'; // Показываем проценты громкости
+    clearTimeout(timeoutId);
+    playerWrapper.classList.add('expanded'); 
+    volumeControl.style.display = 'block'; 
+    volumePercentage.style.display = 'inline'; 
 });
 
 // Обработчик события удаления курсора с плеера
 playerWrapper.addEventListener('mouseout', function() {
     timeoutId = setTimeout(function() {
-        playerWrapper.classList.remove('expanded'); // Удаляем класс для свернутого плеера
-        volumeControl.style.display = 'none'; // Скрываем ползунок громкости
-        volumePercentage.style.display = 'none'; // Скрываем проценты громкости
-    }, 5000); // Устанавливаем время задержки в 5 секунд (5000 миллисекунд)
+        playerWrapper.classList.remove('expanded'); 
+        volumeControl.style.display = 'none'; 
+        volumePercentage.style.display = 'none'; 
+    }, 3000);
 });
 
 // Устанавливаем начальную громкость аудио
@@ -44,10 +44,10 @@ document.getElementById('volumePercentage').textContent = '10%';
 playPauseBtn.addEventListener('click', function() {
     if (audio.paused) {
         audio.play();
-        playPauseBtn.textContent = '⏸'; // Изменяем иконку на паузу
+        playPauseBtn.textContent = '⏸'; 
     } else {
         audio.pause();
-        playPauseBtn.textContent = '▶️'; // Изменяем иконку на плей
+        playPauseBtn.textContent = '▶️'; 
     }
 });
 
@@ -59,7 +59,7 @@ volumeControl.addEventListener('input', function() {
 // Обработчик события начала воспроизведения трека
 audio.addEventListener('playing', function() {
     console.log('Трек начал воспроизводиться:', audio.src);
-    trackName.textContent = getFileName(audio.src); // Отображаем название трека
+    trackName.textContent = getFileName(audio.src); // Отображаем название трека (Зависит от URL) 
 
     // Запускаем функцию для перемещения текста
     moveTrackName();
@@ -68,54 +68,53 @@ audio.addEventListener('playing', function() {
 // Обработчик события паузы воспроизведения трека
 audio.addEventListener('pause', function() {
     console.log('Трек приостановлен:', audio.src);
-    // Очищаем интервал, чтобы остановить движение текста
     clearInterval(moveInterval);
 });
 
 // Обработчик события окончания воспроизведения трека
 audio.addEventListener('ended', function() {
     console.log('Трек завершен:', audio.src);
-    trackName.textContent = ''; // Очищаем отображаемое название трека
+    trackName.textContent = ''; 
 });
 
 // Обработчик события изменения громкости
 volumeControl.addEventListener('input', function() {
-    const volumePercentage = Math.round(volumeControl.value * 100); // Вычисляем процент громкости
-    audio.volume = volumeControl.value; // Устанавливаем громкость аудио
-    document.getElementById('volumePercentage').textContent = volumePercentage + '%'; // Обновляем отображение процента громкости
+    const volumePercentage = Math.round(volumeControl.value * 100);
+    audio.volume = volumeControl.value; 
+    document.getElementById('volumePercentage').textContent = volumePercentage + '%'; 
 });
 
 
-// Функция для получения названия файла из URL
+// Функция для получения названия файла из URL (Toщё не робит но может когда нибуть будет)
 function getFileName(url) {
-    return url.split('/').pop(); // Получаем последний элемент после разделения URL по '/'
+    return url.split('/').pop(); 
 }
 
 // Функция для перемещения текста с названием трека
 function moveTrackName() {
     let xPos = 0;
-    const maxWidth = document.getElementById('playerWrapper').offsetWidth - trackName.offsetWidth - 10; // Вычисляем максимальную ширину, учитывая отступы
+    const maxWidth = document.getElementById('playerWrapper').offsetWidth - trackName.offsetWidth - 10;
     const moveInterval = setInterval(function() {
         if (xPos < maxWidth) {
-            xPos += 1; // Увеличиваем позицию текста на 1 пиксель вправо
-            trackName.style.transform = `translateX(-${xPos}px)`; // Применяем новую позицию
+            xPos += 1; 
+            trackName.style.transform = `translateX(-${xPos}px)`; 
         } else {
-            clearInterval(moveInterval); // Очищаем интервал
+            clearInterval(moveInterval); 
         }
-    }, 30); // Частота обновления 30 мс (примерно 33 кадра в секунду)
+    }, 30); // Частота обновления 30 мс (примерно 33 кадра в секунду но хз)
 
-    // Запоминаем интервал, чтобы можно было его остановить при необходимости
+
     return moveInterval;
 }
 
-// Вызываем функцию для перемещения текста при начале воспроизведения трека
+
 audio.addEventListener('playing', function() {
     console.log('Трек начал воспроизводиться:', audio.src);
     trackName.textContent = getFileName(audio.src); // Отображаем название трека
 
-    // Очищаем предыдущий интервал, если он есть
+    // Очищает предыдущий интервал, если он есть
     clearInterval(moveInterval);
-    // Запускаем функцию для перемещения текста
+    // Запускает функцию для перемещения текста
     moveInterval = moveTrackName();
 });
 
