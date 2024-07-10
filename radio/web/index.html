@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт в разработке</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>RADIO LOFI</title>
+    <link rel="stylesheet" href="css/radio.css">
+    <link rel="stylesheet" href="css/1lightmode.css">
 </head>
 <body>
+        <div class="theme-container">
+            <button id="themeToggle">Темная тема</button> Тема сайта
+        </div>
+
     <div class="container">
-        <img src="images/ok.gif" alt="Гифка" class="gif">
-        <p>Сайт в разработке</p>
+        <div class="version-container">
+            Alpha V1.0
+        </div>
+
+        <div class="gif-container">
+            <img src="images/ok.gif" alt="Гифка" class="gif">
+            <p>Сайт в разработке</p>
+        </div>
     </div>
+
+    <div class="audio-container">
+        <audio id="audio" src="https://live.lofiradio.ru/lofi_mp3_128"></audio>
+        <div class="player-container">
+            <button id="play-pause" class="transparent-button">▶️</button>
+            <div id="volume-container">
+                <input type="range" id="volume" min="0" max="100">
+                <span id="volume-percentage">100%</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/radio.js"></script>
+    <script src="js/lightmode.js"></script>
 </body>
 </html>
+
+
