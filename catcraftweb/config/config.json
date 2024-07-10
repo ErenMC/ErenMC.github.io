@@ -1,0 +1,13 @@
+{
+    "db": {
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": ""
+    },
+    "discord": {
+        "clientId": "",
+        "clientSecret": "",
+        "redirectUri": ""
+    }
+}
