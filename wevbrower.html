@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быстрый доступ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            padding: 30px 20px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0 0 20px;
+            font-weight: 300;
+            font-size: 2.2rem;
+            color: #444;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        .search-form {
+            display: flex;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-button {
+            background-color: #ffdb4d;
+            color: #000;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        
+        .search-button:hover {
+            background-color: #ffcc00;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        
+        .tab {
+            background-color: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+        }
+        
+        .tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        
+        .tab a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 25px 10px;
+        }
+        
+        .tab-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .tab-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .youtube { color: #ff0000; }
+        .twitch { color: #9146ff; }
+        .vk { color: #4a76a8; }
+        .discord { color: #5865f2; }
+        .telegram { color: #0088cc; }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #999;
+        }
+        
+        @media (max-width: 700px) {
+            .tabs {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Быстрый доступ</h1>
+        <div class="search-container">
+            <form class="search-form" action="https://yandex.ru/search/" method="get" target="_blank">
+                <input class="search-input" type="text" name="text" placeholder="Поиск в Яндексе...">
+                <button class="search-button" type="submit">Найти</button>
+            </form>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab">
+                <a href="https://youtube.com" target="_blank">
+                    <div class="tab-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="tab-title">YouTube</div>
+                </a>
+            </div>
+            
+            <div class="tab">
+                <a href="https://twitch.tv" target="_blank">
+                    <div class="tab-icon twitch">
+                        <i class="fab fa-twitch"></i>
+                    </div>
+                    <div class="tab-title">Twitch</div>
+                </a>
+            </div>
+            
+            <div class="tab">
+                <a href="https://vk.com" target="_blank">
+                    <div class="tab-icon vk">
+                        <i class="fab fa-vk"></i>
+                    </div>
+                    <div class="tab-title">ВКонтакте</div>
+                </a>
+            </div>
+            
+            <div class="tab">
+                <a href="https://discord.com" target="_blank">
+                    <div class="tab-icon discord">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="tab-title">Discord</div>
+                </a>
+            </div>
+            
+            <div class="tab">
+                <a href="https://telegram.org" target="_blank">
+                    <div class="tab-icon telegram">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="tab-title">Telegram</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Быстрый доступ к популярным сервисам</p>
+    </footer>
+    
+    <!-- Font Awesome для иконок -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
