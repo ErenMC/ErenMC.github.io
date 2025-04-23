@@ -3,201 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Быстрый доступ</title>
+    <title>Закурдаев Захар</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
+            padding: 20px;
             color: #333;
+            line-height: 1.5;
+            background-image: url('./img/nnn.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            align-items: center;
         }
         
-        header {
-            padding: 30px 20px 20px;
-            text-align: center;
-        }
-        
-        h1 {
-            margin: 0 0 20px;
-            font-weight: 300;
-            font-size: 2.2rem;
-            color: #444;
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         
         .search-container {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            padding: 0 20px;
+            padding: 20px;
             width: 100%;
-        }
-        
-        .search-form {
             display: flex;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            font-size: 16px;
-            outline: none;
-        }
-        
-        .search-button {
-            background-color: #ffdb4d;
-            color: #000;
-            border: none;
-            padding: 0 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.2s;
-        }
-        
-        .search-button:hover {
-            background-color: #ffcc00;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            flex: 1;
-        }
-        
-        .tabs {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
             gap: 15px;
         }
         
-        .tab {
-            background-color: white;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-align: center;
+        .yandex-logo {
+            height: 40px;
+            width: 40px;
+            object-fit: contain;
         }
         
-        .tab:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        .search-form {
+            flex: 1;
+            display: flex;
+            position: relative;
         }
         
-        .tab a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            padding: 25px 10px;
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.9);
         }
         
-        .tab-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
+        .search-input:focus {
+            border-color: #ffdb4d;
+            box-shadow: 0 2px 8px rgba(255, 219, 77, 0.3);
         }
         
-        .tab-title {
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .youtube { color: #ff0000; }
-        .twitch { color: #9146ff; }
-        .vk { color: #4a76a8; }
-        .discord { color: #5865f2; }
-        .telegram { color: #0088cc; }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 13px;
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             color: #999;
         }
         
-        @media (max-width: 700px) {
-            .tabs {
-                grid-template-columns: 1fr;
+        .links-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .link {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .link-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 600px) {
+            .links {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            h1 {
-                font-size: 1.8rem;
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px 0;
+            }
+            
+            .yandex-logo {
+                align-self: center;
+                margin-bottom: 10px;
+            }
+            
+            .links-container {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Быстрый доступ</h1>
+    <div class="main-container">
+        <div class="header">
+            <h1>Закурдаев Захар</h1>
+        </div>
+        
         <div class="search-container">
+            <img id="yandex-logo" class="yandex-logo" alt="Яндекс">
             <form class="search-form" action="https://yandex.ru/search/" method="get" target="_blank">
+                <span class="search-icon">🔍</span>
                 <input class="search-input" type="text" name="text" placeholder="Поиск в Яндексе...">
-                <button class="search-button" type="submit">Найти</button>
             </form>
         </div>
-    </header>
-    
-    <div class="container">
-        <div class="tabs">
-            <div class="tab">
-                <a href="https://youtube.com" target="_blank">
-                    <div class="tab-icon youtube">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <div class="tab-title">YouTube</div>
-                </a>
-            </div>
-            
-            <div class="tab">
-                <a href="https://twitch.tv" target="_blank">
-                    <div class="tab-icon twitch">
-                        <i class="fab fa-twitch"></i>
-                    </div>
-                    <div class="tab-title">Twitch</div>
-                </a>
-            </div>
-            
-            <div class="tab">
-                <a href="https://vk.com" target="_blank">
-                    <div class="tab-icon vk">
-                        <i class="fab fa-vk"></i>
-                    </div>
-                    <div class="tab-title">ВКонтакте</div>
-                </a>
-            </div>
-            
-            <div class="tab">
-                <a href="https://discord.com" target="_blank">
-                    <div class="tab-icon discord">
-                        <i class="fab fa-discord"></i>
-                    </div>
-                    <div class="tab-title">Discord</div>
-                </a>
-            </div>
-            
-            <div class="tab">
-                <a href="https://telegram.org" target="_blank">
-                    <div class="tab-icon telegram">
-                        <i class="fab fa-telegram"></i>
-                    </div>
-                    <div class="tab-title">Telegram</div>
-                </a>
+        
+        <div class="links-container">
+            <div class="links" id="links-container">
+                <!-- Ссылки будут добавлены через JavaScript -->
             </div>
         </div>
     </div>
-    
-    <footer>
-        <p>Быстрый доступ к популярным сервисам</p>
-    </footer>
-    
-    <!-- Font Awesome для иконок -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        // Список сайтов
+        const sites = [
+            { name: "YouTube", url: "https://youtube.com" },
+            { name: "GitHub", url: "https://github.com" },
+            { name: "Telegram", url: "https://telegram.org" },
+            { name: "ВКонтакте", url: "https://vk.com" },
+            { name: "Twitch", url: "https://twitch.tv" },
+            { name: "Яндекс", url: "https://yandex.ru" },
+            { name: "Google", url: "https://google.com" },
+            { name: "Reddit", url: "https://reddit.com" }
+        ];
+
+        // Загружаем логотип Яндекса
+        document.addEventListener('DOMContentLoaded', function() {
+            // Устанавливаем логотип Яндекса
+            const yandexLogo = document.getElementById('yandex-logo');
+            yandexLogo.src = 'https://www.google.com/s2/favicons?domain=yandex.ru&sz=128';
+            
+            // Создаём ссылки
+            const container = document.getElementById('links-container');
+            sites.forEach(site => {
+                const link = document.createElement('a');
+                link.href = site.url;
+                link.className = 'link';
+                link.target = '_blank';
+                
+                const icon = document.createElement('img');
+                icon.className = 'link-icon';
+                icon.src = `https://www.google.com/s2/favicons?domain=${site.url}&sz=64`;
+                icon.alt = site.name;
+                
+                const text = document.createElement('span');
+                text.textContent = site.name;
+                
+                link.appendChild(icon);
+                link.appendChild(text);
+                container.appendChild(link);
+            });
+        });
+    </script>
 </body>
 </html>
