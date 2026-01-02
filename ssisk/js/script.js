@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btn1 = document.getElementById('btn1');
     const btn2 = document.getElementById('btn2');
     
-    const fullText = "Хули ты сюда защёл?";
+    const fullText = "Ты тупое животное, а не человек";
     let currentText = "";
     let charIndex = 0;
     let typingSpeed = 100;
@@ -41,4 +41,5 @@ document.addEventListener('DOMContentLoaded', function() {
         
         typeWriter();
     });
+
 });
