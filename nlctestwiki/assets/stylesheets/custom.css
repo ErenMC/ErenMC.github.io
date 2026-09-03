@@ -1,0 +1,484 @@
+/*
+  Фирменные стили NLCloud (NorthernLightsCloud)
+  Акцент: #ff6b00 · Тёмный: #0f172a / #1e293b · Шрифт: Inter
+*/
+
+/* ===== Брендовые цвета ===== */
+
+:root {
+  --nw-accent: #ff6b00;
+  --nw-accent-hover: #e55d00;
+  --nw-accent-light: #ff8533;
+  --nw-dark: #0f172a;
+  --nw-dark-light: #1e293b;
+  --nw-bg-secondary: #f8fafc;
+  --nw-border: #e2e8f0;
+}
+
+/* ===== Шапка — фирменный стиль NLCloud (glass) ===== */
+
+/* Шапка: полупрозрачный фон с блюром (как на сайте), высота 70px,
+   нижняя граница. Фон и цвет текста адаптируются к теме. */
+
+.md-header {
+  position: sticky;
+  top: 0;
+  height: 70px;
+  color: var(--md-header-fg, var(--nw-dark));
+  background-color: transparent;
+  border-bottom: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 4;
+}
+
+/* Без неона и свечения в шапке — только чистый стеклянный фон.
+   Псевдоэлементы полностью сброшены. */
+.md-header::before,
+.md-header::after {
+  content: none;
+}
+
+/* Светлая тема: светло-белый полупрозрачный фон */
+[data-md-color-scheme="default"] .md-header {
+  background-color: rgb(255 255 255 / 0.72);
+  --md-header-fg: var(--nw-dark);
+}
+
+/* Тёмная тема: тёмный полупрозрачный фон */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgb(26 27 38 / 0.88);
+  --md-header-fg: #fff;
+}
+
+/* Ограждение шапки (внутренний контейнер) */
+.md-header__inner {
+  height: 70px;
+}
+
+/* Заголовок (название вики) */
+.md-header__title {
+  color: var(--md-header-fg, var(--nw-dark));
+  font-weight: 600;
+}
+
+.md-header__title .md-ellipsis {
+  color: inherit;
+}
+
+/* Иконки-кнопки в шапке */
+.md-header__button {
+  color: var(--md-header-fg, var(--nw-dark));
+}
+
+.md-header__button:hover {
+  color: var(--nw-accent);
+}
+
+/* Логотип: переключается по теме (светлый на тёмной, тёмный на светлой) */
+.md-header__button.md-logo {
+  padding: 0.4rem 0;
+}
+
+.md-header__button.md-logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+[data-md-color-scheme="default"] .md-header__button.md-logo img {
+  content: url("../images/logo-dark.png");
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img {
+  content: url("../images/logo-light.png");
+}
+
+/* ===== Навигационные вкладки ===== */
+
+.md-tabs {
+  background-color: var(--nw-dark-light);
+  color: #fff;
+}
+
+.md-tabs__link {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: #fff;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  color: #fff;
+}
+
+/* ===== Ссылки и акцент ===== */
+
+.md-typeset a {
+  color: var(--nw-accent);
+}
+
+.md-typeset a:hover {
+  color: var(--nw-accent-hover);
+}
+
+.md-nav__link--active {
+  color: var(--nw-accent) !important;
+}
+
+.md-nav__item--active > .md-nav__link--active {
+  color: var(--nw-accent) !important;
+}
+
+/* ===== Акценты через CSS-переменные Material ===== */
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--nw-dark);
+  --md-primary-fg-color--light: var(--nw-dark-light);
+  --md-primary-fg-color--dark: #020617;
+  --md-accent-fg-color: var(--nw-accent);
+  --md-accent-fg-color--transparent: rgb(255 107 0 / 0.1);
+  --md-typeset-a-color: var(--nw-accent);
+  --md-default-fg-color--light: #475569;
+  --md-typeset-table-color: var(--nw-border);
+  --md-typeset-table-color--light: var(--nw-bg-secondary);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--nw-dark);
+  --md-primary-fg-color--light: var(--nw-dark-light);
+  --md-primary-fg-color--dark: #020617;
+  --md-accent-fg-color: var(--nw-accent);
+  --md-accent-fg-color--transparent: rgb(255 107 0 / 0.15);
+  --md-typeset-a-color: var(--nw-accent-light);
+}
+
+/* ===== Шрифт по умолчанию ===== */
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Кнопки — фирменный неоновый стиль (как на сайте) ===== */
+
+.md-typeset .md-button {
+  border-radius: 0.5rem;
+  border: 1px solid var(--nw-border);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Основная кнопка: оранжевый градиент + мягкое неоновое свечение */
+.md-typeset .md-button--primary {
+  background-image: linear-gradient(
+    135deg,
+    var(--nw-accent) 0%,
+    var(--nw-accent-hover) 100%
+  );
+  border-color: var(--nw-accent);
+  color: #fff;
+  box-shadow: 0 1px 3px rgb(255 107 0 / 0.3);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-image: linear-gradient(
+    135deg,
+    var(--nw-accent-light) 0%,
+    var(--nw-accent) 100%
+  );
+  border-color: var(--nw-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgb(255 107 0 / 0.35);
+  animation: nw-pulse-glow 0.6s ease;
+}
+
+/* Кнопка-обводка при наведении тоже получает лёгкое свечение */
+.md-typeset .md-button:hover {
+  border-color: var(--nw-accent);
+  color: var(--nw-accent);
+  box-shadow: 0 2px 8px rgb(255 107 0 / 0.18);
+}
+
+/* ===== Неоновое свечение по всей странице (как на сайте NLCloud) ===== */
+
+/* Мягкая светящаяся оранжевая линия под заголовками контента */
+.md-typeset h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.md-typeset h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--nw-accent), var(--nw-accent-light));
+  box-shadow: 0 1px 10px 1px rgb(255 107 0 / 0.45);
+}
+
+/* Ссылки: лёгкое свечение при наведении */
+.md-typeset a {
+  transition: text-shadow 0.2s ease, color 0.2s ease;
+}
+
+.md-typeset a:hover {
+  text-shadow: 0 0 12px rgb(255 107 0 / 0.45);
+}
+
+/* Карточки (grid cards): мягкое свечение при наведении */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--nw-accent);
+  box-shadow:
+    0 0 0 1px rgb(255 107 0 / 0.35),
+    0 8px 24px -4px rgb(255 107 0 / 0.25);
+  transform: translateY(-3px);
+}
+
+/* Заметки-блоки (admonition): подсветка рамочки неоном */
+.md-typeset .admonition,
+.md-typeset details {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.md-typeset .admonition:hover,
+.md-typeset details:hover {
+  border-color: var(--nw-accent);
+  box-shadow: 0 0 18px -4px rgb(255 107 0 / 0.25);
+}
+
+/* Активный пункт боковой навигации — лёгкое свечение */
+.md-nav__link--active {
+  color: var(--nw-accent) !important;
+  text-shadow: 0 0 10px rgb(255 107 0 / 0.45);
+}
+
+/* Пульсирующее неоновое свечение (как .pulse-glow на сайте) */
+@keyframes nw-pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgb(255 107 0 / 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px transparent,
+      0 4px 18px rgb(255 107 0 / 0.55);
+  }
+}
+
+/* ===== Таблицы (в фирменном стиле NLCloud) ===== */
+
+/*
+  Корректная схема оформления таблиц для обеих тем.
+  Вместо хардкода цветов используем переменные темы Material
+  (--md-*), которые автоматически адаптируются к светлой/тёмной теме,
+  а фирменный акцент задаём отдельно. Это устраняет «белую секцию»
+  на тёмной теме и «растянутый> таблицы контейнер».
+*/
+
+/* Контейнер таблицы: облегает таблицу по ширине (inline-block),
+   без отрицательных отступов и без лишнего растягивания. */
+.md-typeset__scrollwrap {
+  margin: 1.2rem 0;
+  padding: 0;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--md-default-bg-color);
+}
+
+/* Внутренний блок: подстраивается под содержимое (не растягивается шире). */
+.md-typeset__table {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Сама таблица — оформляется как карточка (в разметке обычные
+   Markdown-таблицы не оборачиваются в scrollwrap, поэтому рамку,
+   скругление и тень задаём прямо на таблице). */
+.md-typeset table:not([class]) {
+  width: 100%;
+  margin: 1.25rem 0;
+  border: 1px solid var(--md-typeset-table-color);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--md-shadow-z1, 0 1px 3px 0 rgb(0 0 0 / 0.12));
+  background-color: var(--md-default-bg-color);
+}
+
+/* Заголовок таблицы */
+.md-typeset table:not([class]) thead th {
+  background-color: var(--nw-dark);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.8rem 1.1rem;
+  border-bottom: 3px solid var(--nw-accent);
+  white-space: nowrap;
+}
+
+/* Ячейки тела: фон и цвет наследуем из темы,
+   чтобы не было белых полос на тёмной теме. */
+.md-typeset table:not([class]) tbody th,
+.md-typeset table:not([class]) tbody td {
+  padding: 0.7rem 1.1rem;
+  border-top: 1px solid var(--md-typeset-table-color);
+}
+
+/* Чередование строк: используем мягкий полупрозрачный тон,
+   который одинаково работает на светлой и тёмной темах. */
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+/* Подсветка строки при наведении — оранжевый оттенок */
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* Ссылки внутри таблиц */
+.md-typeset table:not([class]) a {
+  color: var(--md-typeset-a-color);
+  font-weight: 500;
+}
+
+/* Заголовок первого столбца: используем цвет текста из темы */
+.md-typeset table:not([class]) tbody th {
+  font-weight: 600;
+  color: inherit;
+  text-align: left;
+}
+
+/* Тёмная тема: чуть светлее фон шапки */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) thead th {
+  background-color: var(--nw-dark-light);
+  color: #fff;
+}
+
+/* ===== Выделение кода ===== */
+
+.md-typeset pre > code,
+.md-typeset .highlight {
+  border-radius: 0.5rem;
+}
+
+/* ===== Панель поиска в шапке (адаптивная к теме) ===== */
+
+/* Светлая тема: светлый фон, тёмный текст */
+[data-md-color-scheme="default"] .md-search__input {
+  background-color: rgb(15 23 42 / 0.06);
+  color: var(--nw-dark);
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: rgb(15 23 42 / 0.55);
+}
+
+[data-md-color-scheme="default"] .md-search__icon svg {
+  fill: var(--nw-dark);
+}
+
+[data-md-color-scheme="default"] .md-search__form:hover .md-search__input,
+[data-md-color-scheme="slate"] .md-search__form:hover .md-search__input {
+  background-color: rgb(255 107 0 / 0.12);
+}
+
+/* Тёмная тема: светлый текст */
+[data-md-color-scheme="slate"] .md-search__input {
+  color: #fff;
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: rgb(255 255 255 / 0.6);
+}
+
+[data-md-color-scheme="slate"] .md-search__icon svg {
+  fill: #fff;
+}
+
+[data-md-color-scheme="default"] .md-header__button:hover {
+  color: var(--nw-accent);
+}
+
+/* ===== Плавное появление ===== */
+
+.md-content__inner {
+  animation: nw-fade-in 0.5s ease;
+}
+
+@keyframes nw-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Нижний колонтитул — скрыт ===== */
+
+.md-footer {
+  display: none;
+}
+
+/* ===== Кнопка «К началу» — снизу справа ===== */
+
+.md-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.5rem;
+  top: auto !important;
+  left: auto;
+  margin-left: 0 !important;
+  transform: none !important;
+  z-index: 30;
+  border-radius: 8px;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid var(--nw-border);
+  color: var(--nw-accent);
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* Контроль над показом: игнорируем системный атрибут hidden,
+     видимостью управляет собственный скрипт (см. custom.js). */
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease, box-shadow 0.2s ease;
+}
+
+.md-top--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.md-top:hover {
+  border-color: var(--nw-accent);
+  box-shadow: 0 4px 14px rgb(255 107 0 / 0.25);
+}
+
+[data-md-color-scheme="slate"] .md-top {
+  background-color: rgb(34 35 47 / 0.9);
+  border-color: rgb(67 69 96 / 0.6);
+  color: #fff;
+}
